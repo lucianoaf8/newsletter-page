@@ -38,8 +38,6 @@ NEWSLETTER-PAGE-SVELTE
 │   │   └── +page.svelte
 │   ├── app.css
 │   ├── app.html
-│   ├── App.svelte
-│   └── main.js
 ├── static
 │   └── favicon.png
 ├── .gitignore
@@ -51,5 +49,4 @@ NEWSLETTER-PAGE-SVELTE
 ├── project-documentation.md
 ├── svelte.config.js
 ├── vite.config.js
-└── vite-env.d.ts
 ```

@@ -1,26 +1,20 @@
+<!-- src/routes/+layout.svelte -->
 <script>
-    import { onMount } from 'svelte';
-    import { initializeI18n } from '$lib/i18n';
-    import LanguageToggle from '$lib/components/LanguageToggle.svelte';
-    import '../app.css';
+  import '../app.css';
+  import LanguageToggle from '$lib/components/LanguageToggle.svelte';
+</script>
+
+<div id="app" class="bg-soft-neutral text-dark-gray min-h-screen flex flex-col relative">
+  <!-- Temporarily removed background div for testing -->
+  <!-- <div id="background" class="absolute inset-0 pointer-events-none z-0">
+    <div class="background-circle"></div>
+    <div class="background-circle"></div>
+    <div class="background-circle"></div>
+  </div> -->
   
-    onMount(() => {
-      initializeI18n();
-    });
-  </script>
+  <LanguageToggle class="z-10" />
   
-  <div id="app">
-    <LanguageToggle />
-    <div id="background">
-      <div class="background-circle"></div>
-      <div class="background-circle"></div>
-      <div class="background-circle"></div>
-    </div>
-    <div id="container">
-      <slot></slot>
-    </div>
-  </div>
-  
-  <style>
-    /* You can add any global styles here if needed */
-  </style>
+  <main id="container" class="flex-grow relative z-10">
+    <slot></slot>
+  </main>
+</div>

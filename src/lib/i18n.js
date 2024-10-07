@@ -1,11 +1,9 @@
-import { init, register, waitLocale } from 'svelte-i18n';
+// src/lib/i18n.js
+import { register } from 'svelte-i18n';
+import en from './locales/en.json';
+import pt from './locales/pt.json';
 
-register('en', () => import('./locales/en.json'));
-register('pt', () => import('./locales/pt.json'));
-
-init({
-  fallbackLocale: 'en',
-  initialLocale: 'en' // We'll set this to a default for now
-});
-
-export const i18nReady = waitLocale();
+export function registerLocales() {
+  register('en', () => Promise.resolve(en));
+  register('pt', () => Promise.resolve(pt));
+}

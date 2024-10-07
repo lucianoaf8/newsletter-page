@@ -1,23 +1,26 @@
+// svelte.config.js
 import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-  preprocess: vitePreprocess(),
+  preprocess: sveltePreprocess({
+    postcss: {
+      configFilePath: './postcss.config.cjs', // Explicitly specify the config file path
+    },
+  }),
   kit: {
     adapter: adapter({
       pages: 'build',
       assets: 'build',
       fallback: 'index.html',
       precompress: false,
-      strict: true
+      strict: true,
     }),
-    // Remove the prerender object
-    // Instead, use the following:
     prerender: {
-      entries: ['*']
-    }
-  }
+      entries: ['*'],
+    },
+  },
 };
 
 export default config;
